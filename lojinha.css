@@ -1,0 +1,127 @@
+body {
+    font-family: 'Cinzel', serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #d4ecf0; 
+    color: #007acc; 
+}
+
+header {
+    background-color: #003366; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #6bc6f0; 
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+nav li {
+    margin: 0 15px; 
+}
+
+nav a {
+    color: #003366; 
+    text-decoration: none; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6); 
+    transition: background-color 0.3s; 
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.9); 
+}
+
+aside.menu {
+    width: 20%;
+    height: 100vh; 
+    background-color: #6bc6f0; 
+    padding: 15px;
+    float: left;
+}
+
+aside.menu h2 {
+    margin-top: 0;
+}
+
+aside.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside.menu li {
+    margin: 20px 0; 
+    font-size: 1.2em; 
+}
+
+main.conteudo {
+    width: 75%;
+    float: right;
+    padding: 15px;
+}
+
+section.subtitulo {
+    background-color: #b3e5fc; 
+    padding: 15px;
+    border: 2px solid #007acc; 
+    border-radius: 8px;
+}
+
+figure.imagem {
+    margin: 10px 0;
+}
+
+figure.imagem img {
+    width: 50%; 
+    height: auto; 
+    border-radius: 8px;
+}
+
+.texto {
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #003366; 
+    color: white;
+}
+
+footer {
+    clear: both; 
+    background-color: #003366; 
+    color: white;
+    padding: 10px 0;
+    text-align: center; 
+    position: relative;
+    width: 100%;
+    font-size: 1.2em; 
+}

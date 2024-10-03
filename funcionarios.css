@@ -1,0 +1,39 @@
+body {
+    background-color: lightblue; 
+    color: darkblue; 
+    font-family: 'Cinzel', serif;
+    margin: 0; 
+    padding: 20px; 
+}
+
+h2 {
+    color: darkblue;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: darkblue; 
+    text-decoration: none; 
+    margin-right: 15px; 
+}
+
+nav a:hover {
+    text-decoration: underline; 
+}
+
+.funcionarios {
+    border: 2px solid darkblue; 
+    padding: 15px; 
+    border-radius: 5px; 
+    background-color: white; 
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+ol {
+    margin: 0; 
+    padding-left: 20px; 
+}

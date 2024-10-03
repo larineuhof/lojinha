@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Venda</title>
+    <link rel="stylesheet" href="venda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Lojinha Notas & Acordes</h1>
+        <nav>
+            <nav>
+                <a href="lojinha.html">Página Inicial</a>
+                <a href="estoque.html">Controle de Estoque</a>
+                <a href="produto.html">Adicionar Produto</a>
+                <a href="funcionarios.html">Funcionários</a>
+                <a href="venda.html">Página de Vendas</a>
+                <a href="historico.html">Histórico de Vendas</a>
+            </nav>
+        
+    </header>
+
+    <main>
+        <h2>Página de Vendas</h2>
+        <form id="vendaForm" onsubmit="finalizarVenda(event)">
+            <section>
+                <h3>Produtos</h3>
+                <div id="produtos">
+                    <input type="text" name="produto" placeholder="Nome do produto" required>
+                    <input type="number" name="quantidade" placeholder="Quantidade" required>
+                    <button type="button" onclick="adicionarProduto()">Adicionar Produto</button>
+                </div>
+                <ul id="listaProdutos"></ul>
+            </section>
+            
+            <section>
+                <h3>Forma de Pagamento</h3>
+                <label>
+                    <input type="radio" name="pagamento" value="dinheiro" required> Dinheiro
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="cartao" required> Cartão
+                </label>
+            </section>
+
+            <button type="submit">Finalizar Venda</button>
+        </form> 
+    </main>
+
+    <script>
+        function adicionarProduto() {
+            const produtosDiv = document.getElementById('produtos');
+            const produtoInput = produtosDiv.querySelector('input[name="produto"]');
+            const quantidadeInput = produtosDiv.querySelector('input[name="quantidade"]');
+            
+            const produto = produtoInput.value;
+            const quantidade = quantidadeInput.value;
+            
+            if (produto && quantidade) {
+                const lista = document.getElementById('listaProdutos');
+                const li = document.createElement('li');
+                li.textContent = `${quantidade}x ${produto}`;
+                lista.appendChild(li);
+            }
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Lojinha Notas & Acordes</p>
+    </footer>
+</body>
+</html>

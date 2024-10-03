@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="estoque.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            vertical-align: top;
+        }
+        img {
+            width: 50px;
+            height: 40px;
+        }
+        .descricao, .preco {
+            margin: 0;
+            padding: 0;
+        }
+        .preco {
+            margin-top: 5px;
+        }
+        header, nav, main, footer {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lojinha Notas & Acordes</h1>
+    </header>
+    
+    <nav>
+        <a href="lojinha.html">Página Inicial</a>
+        <a href="estoque.html">Controle de Estoque</a>
+        <a href="produto.html">Adicionar Produto</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="venda.html">Página de Vendas</a>
+        <a href="historico.html">Histórico de Vendas</a>
+    </nav>
+ 
+    <main>
+        <h2>Controle de Estoque</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Descrição</th>
+                    <th>Preço (R$)</th>
+                    <th>Quantidade disponível</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://images.tcdn.com.br/img/img_prod/1205809/guitarra_jackson_flying_v_rhoads_js32t_white_2497_1_db391bccda8273fdbd5dcfcfb5056c8f.jpg" alt="Guitarra flying v" /></td>
+                    <td>
+                        <p class="descricao">Guitarra incrível e potente para profissionais</p>
+                    </td>
+                    <td>
+                        <p class="preco">R$8.000</p>
+                    </td>
+                    <td>2</td>
+                </tr>
+ 
+                <tr>
+                    <td><img src="https://br.yamaha.com/pt/files/CVP-909GP_a_0001_f6f01d82f71d5cce3925f2cb1e5de6a9.jpg?impolicy=resize&imwid=396&imhei=396" alt="Piano Yamaha"/></td>
+                    <td>
+                        <p class="descricao">Piano profissional</p>
+                    </td>
+                    <td>
+                        <p class="preco">R$120.000</p>
+                    </td>
+                    <td>8</td>
+                </tr>
+ 
+                <tr>
+                    <td><img src="https://cdnbatera.bateraclube.com.br/files/122/MED_bateria-pearl-masterworks-custom-bubinga-burst-com-2-bumbos-4-tons-2-surdos-gong-bass-e-caixa-25420221845.jpg" alt="Bateria"/></td>
+                    <td>
+                        <p class="descricao">Bateria Pearl</p>
+                    </td>
+                    <td>
+                        <p class="preco">R$69.000</p>
+                    </td>
+                    <td>10</td>
+                </tr>
+ 
+                <tr>
+                    <td><img src="https://www.teclacenter.com.br/media/catalog/product/cache/3381773bcf29e72c83e97f358e3accef/y/a/yamaha_v3ska44_violino_20789.webp" alt="Violino" /></td>
+                    <td>
+                        <p class="descricao">Violino Yamaha</p>
+                    </td>
+                    <td>
+                        <p class="preco">R$3.000</p>
+                    </td>
+                    <td>15</td>
+                </tr>
+
+                <tr>
+                    <td><img src="https://m.media-amazon.com/images/I/61qHbaxfKES._AC_SX679_.jpg" alt="Ukulele" /></td>
+                    <td>
+                        <p class="descricao">Ukulele iniciante</p>
+                    </td>
+                    <td>
+                        <p class="preco">R$250,00</p>
+                    </td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lojinha Notas & Acordes</p>
+    </footer>
+</body>
+</html>

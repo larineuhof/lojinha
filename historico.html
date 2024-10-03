@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas</title>
+    <link rel="stylesheet" href="historico.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap" rel="stylesheet">
+    <style>
+        #resultado { margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lojinha Notas & Acordes</h1>
+    </header>
+
+    <nav>
+        <a href="lojinha.html">Página Inicial</a>
+        <a href="estoque.html">Controle de Estoque</a>
+        <a href="produto.html">Adicionar Produto</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="venda.html">Página de Vendas</a>
+        <a href="historico.html">Histórico de Vendas</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Histórico de Vendas</h2>
+            <form id="vendaForm" onsubmit="return false;">
+                <h3>Dados do Cliente</h3>
+                <label for="nomeCliente">Nome do Cliente:</label>
+                <input type="text" id="nomeCliente" placeholder="Digite seu nome" required>
+                
+                <h3>Escolha os Produtos</h3>
+                <div id="produtos">
+                    <label>
+                        <input type="checkbox" value="Guitarra" data-preco="8000" onchange="atualizarTotal()"> Guitarra (R$ 8.000)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="Piano" data-preco="120000" onchange="atualizarTotal()"> Piano (R$ 120.000)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="Bateria" data-preco="69000" onchange="atualizarTotal()"> Bateria (R$ 69.000)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="Violino" data-preco="3000" onchange="atualizarTotal()"> Violino (R$ 3.000)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="Ukulele" data-preco="250" onchange="atualizarTotal()"> Ukulele (R$ 250)
+                    </label><br>
+                </div>
+
+                <div id="resultado">
+                    <h3>Valor Total: R$ <span id="valorTotal">0</span></h3>
+                </div>
+                
+                <h3>Selecionar Funcionário:</h3>
+                <select id="funcionarioSelecionado" required>
+                    <option value="">Selecione um Funcionário</option>
+                    <option value="Artur Fraga">Artur Fraga</option>
+                    <option value="Henri Toyonari">Henri Toyonari</option>
+                    <option value="Valentina">Valentina</option>
+                    <option value="Lucas Freitas">Lucas Freitas</option>
+                </select>
+                
+                <h3>Forma de Pagamento</h3>
+                <label>
+                    <input type="radio" name="pagamento" value="dinheiro" required> Dinheiro
+                </label>
+                <label>
+                    <input type="radio" name="pagamento" value="cartao" required> Cartão
+                </label>
+                
+                <button type="button" onclick="finalizarCompra()">Finalizar Compra</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Histórico de Vendas</h2>
+            <label for="dataFiltro">Filtrar por Data:</label>
+            <input type="text" id="dataFiltro" placeholder="Ex: 1 de Outubro de 2024">
+            <button type="button" onclick="filtrarPorData()">Filtrar</button>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Nome do Cliente</th>
+                        <th>Funcionário</th>
+                        <th>Valor Total</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Produtos</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaVendas"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lojinha Notas & Acordes</p>
+    </footer>
+
+    <script>
+        let total = 0;
+
+        function atualizarTotal() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            total = 0;
+            checkboxes.forEach(checkbox => {
+                total += parseFloat(checkbox.getAttribute('data-preco'));
+            });
+            document.getElementById('valorTotal').textContent = total.toFixed(2);
+        }
+
+        function finalizarCompra() {
+            const formaPagamento = document.querySelector('input[name="pagamento"]:checked');
+            const funcionario = document.getElementById('funcionarioSelecionado').value;
+            const nomeCliente = document.getElementById('nomeCliente').value;
+
+            if (!formaPagamento) {
+                alert('Por favor, selecione uma forma de pagamento.');
+                return;
+            }
+            if (!funcionario) {
+                alert('Por favor, selecione um funcionário.');
+                return;
+            }
+            if (!nomeCliente) {
+                alert('Por favor, digite o nome do cliente.');
+                return;
+            }
+
+            const produtosSelecionados = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                produtosSelecionados.push(checkbox.value);
+            });
+
+            const horario = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const data = new Date().toLocaleDateString('pt-BR', {day: '2-digit', month: 'long', year: 'numeric'});
+
+            const tabelaVendas = document.getElementById('tabelaVendas');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${data}</td>
+                <td>${horario}</td>
+                <td>${nomeCliente}</td>
+                <td>${funcionario}</td>
+                <td>R$ ${total.toFixed(2)}</td>
+                <td>${formaPagamento.value}</td>
+                <td>${produtosSelecionados.join(', ')}</td>
+            `;
+            tabelaVendas.appendChild(tr);
+
+            alert(`Sua compra foi realizada com sucesso!`);
+            document.getElementById('vendaForm').reset();
+            atualizarTotal();
+        }
+
+        function filtrarPorData() {
+            const data = document.getElementById('dataFiltro').value;
+            const linhas = document.querySelectorAll('#tabelaVendas tr');
+            linhas.forEach(linha => {
+                const dataVenda = linha.cells[0].textContent;
+                if (!dataVenda.includes(data)) {
+                    linha.style.display = 'none';
+                } else {
+                    linha.style.display = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
